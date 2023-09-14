@@ -35,10 +35,15 @@ public class Theatre {
                 """);
 
         int option = 0;
-        while(true){
-            System.out.print("Enter your option: ");
-            option = input.nextInt();
-            break;
+        while(true) {
+            try {
+                System.out.print("Enter your option:");
+                option = input.nextInt();
+                break; // break out of the loop if input is valid
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter a number.");
+                input.nextLine(); // consume the invalid input
+            }
         }
 
     }
