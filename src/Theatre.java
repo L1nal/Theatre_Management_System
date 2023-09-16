@@ -11,7 +11,17 @@ public class Theatre {
 
         System.out.println("Welcome to the New Theatre !");
 
-        System.out.println("""
+        boolean loop = false;
+
+        while (!loop){
+
+            for(int x = 1; x < 200; x++){
+                System.out.print("-");
+            }
+            System.out.println();
+            System.out.println();
+
+            System.out.println("""
                 Please select an option:
 
 
@@ -34,15 +44,21 @@ public class Theatre {
                       0) Quit.
                 """);
 
-        int option = 0;
-        while(true) {
-            try {
-                System.out.print("Enter your option:");
-                option = input.nextInt();
-                break; // break out of the loop if input is valid
-            } catch (InputMismatchException e) {
-                System.out.println("Invalid input. Please enter a number.");
-                input.nextLine(); // consume the invalid input
+            for(int x = 1; x < 200; x++){
+                System.out.print("-");
+            }
+            System.out.println();
+
+            int option = 0;
+            while(true) {
+                try {
+                    System.out.print("Enter your option:");
+                    option = input.nextInt();
+                    break; // break out of the loop if input is valid
+                } catch (InputMismatchException e) {
+                    System.out.println("Invalid input. Please enter a number.");
+                    input.nextLine(); // consume the invalid input
+                }
             }
         }
 
