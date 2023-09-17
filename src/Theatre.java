@@ -69,6 +69,9 @@ public class Theatre {
                 case 2:
                     print_seating_area();
                     break;
+                case 3:
+                    cancel_ticket();
+                    break;
                 case 0:
                     System.out.println("Thank You, Enjoy the show.");
                     loop = true;
@@ -109,6 +112,15 @@ public class Theatre {
         }
     }
 
+    public static void cancelTicket_dataCheck(int min, int max){
+        int seat_no = inputData_checker(min, max);
+        if (row_1[seat_no-1].equals("O")) {
+            System.out.println("Unoccupied seat");
+        }else if (row_1[seat_no-1].equals("X")) {
+            row_1[seat_no-1] = "O";
+            System.out.println("Seat cancelled successfully.");
+        }
+    }
     public static void buy_ticket(){
 
         System.out.println("Enter the Row and Column Number of the seat you wish to reserve.");
@@ -185,5 +197,30 @@ public class Theatre {
             }
         }
         System.out.println();
+    }
+
+    public static void cancel_ticket(){
+
+        System.out.println("Enter the Row and Column Number of the seat you wish to cancel.");
+
+        while(true) {
+
+            try{
+                System.out.println( );
+                System.out.print("Enter the row number:");
+                int row_no = inputData_checker(0, 3);
+                System.out.print("Enter the Seat number:");
+                if(row_no == 1){
+                    cancelTicket_dataCheck(1, 12);
+                }else if(row_no == 2){
+                    cancelTicket_dataCheck(1, 16);
+                }else if(row_no == 3){
+                    cancelTicket_dataCheck(1, 20);
+                }break;
+            } catch (Exception e) {
+                System.out.println("\n");
+                System.out.println("Invalid Input. Please try again.");
+            }
+        }
     }
 }
