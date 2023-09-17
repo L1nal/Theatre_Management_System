@@ -59,6 +59,19 @@ public class Theatre {
                     System.out.println("Invalid input. Please enter a number.");
                     input.nextLine(); // consume the invalid input
                 }
+
+            }
+
+            switch(option){
+                case 1:
+                    buy_ticket();
+                    break;
+                case 0:
+                    System.out.println("Thank You, Enjoy the show.");
+                    loop = true;
+                    break;
+                default:
+                    System.out.println("Enter a valid input.");
             }
 
         }
