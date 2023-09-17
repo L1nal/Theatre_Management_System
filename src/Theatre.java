@@ -60,6 +60,32 @@ public class Theatre {
                     input.nextLine(); // consume the invalid input
                 }
             }
+
+        }
+    }
+
+    public static int buy_ticket(){
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Enter the Row and Column Number of the seat you wish to reserve.");
+
+        while(true) {
+            try {
+                System.out.print("Enter the row number:");
+                int row_no = input.nextInt();
+                if (1 <= row_no && row_no <= 3) {
+                    return row_no;
+                } else {
+                    System.out.println("Out of range");
+                    System.out.println();
+                    System.out.print("Please enter a valid integer between " + 1 + " - " + 3 + " :");
+                    System.out.print("Enter the row number:");
+                }
+            } catch (Exception e) {
+                System.out.println("\n");
+                System.out.println("Invalid Input. Please try again.");
+            }
         }
 
     }
