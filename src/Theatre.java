@@ -66,6 +66,9 @@ public class Theatre {
                 case 1:
                     buy_ticket();
                     break;
+                case 2:
+                    print_seating_area();
+                    break;
                 case 0:
                     System.out.println("Thank You, Enjoy the show.");
                     loop = true;
@@ -75,7 +78,6 @@ public class Theatre {
             }
         }
     }
-
 
     public static int inputData_checker(int min,int max) {
         Scanner input = new Scanner(System.in);
@@ -130,5 +132,58 @@ public class Theatre {
                 System.out.println("Invalid Input. Please try again.");
             }
         }
+    }
+
+    public static void print_seating_area(){
+
+        System.out.print("\t");
+        System.out.print("\t");
+        System.out.println("*************");
+        System.out.print("\t");
+        System.out.print("\t");
+        System.out.println("*" + "   STAGE   " + "*");
+        System.out.print("\t");
+        System.out.print("\t");
+        System.out.println("*************");
+
+        System.out.print("\t");
+        System.out.print("\t");
+        for(int i = 0; i < row_1.length; i++){
+            if(i == 6){
+                System.out.print(" ");
+                System.out.print(row_1[6]);
+            }else{
+                System.out.print(row_1[i]);
+            }
+        }
+
+        System.out.println();
+
+        for(int j = 0; j < row_2.length; j++){
+            if(j == 0){
+                System.out.print("      ");
+                System.out.print(row_2[0]);
+            }else if(j == 8){
+                System.out.print(" ");
+                System.out.print(row_2[8]);
+            }else{
+                System.out.print(row_2[j]);
+            }
+        }
+
+        System.out.println();
+
+        for(int k = 0; k < row_3.length; k++){
+            if(k == 0){
+                System.out.print("    ");
+                System.out.print(row_3[0]);
+            }else if(k == 10){
+                System.out.print(" ");
+                System.out.print(row_3[10]);
+            }else {
+                System.out.print(row_3[k]);
+            }
+        }
+        System.out.println();
     }
 }
