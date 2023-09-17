@@ -97,7 +97,7 @@ public class Theatre {
         }
     }
 
-    public static void buyTicket_dataCheck(int min, int max, String arr[], float price, int row){
+    public static void buyTicket_dataCheck(int min, int max, String arr[]){
         int seat_no = inputData_checker(min, max);
         if (arr[seat_no - 1].equals("X")) {
             System.out.println("This Seat is already occupied.");
@@ -117,11 +117,11 @@ public class Theatre {
                 int row_no = inputData_checker(1,3);
                 System.out.print("Enter the Seat number:");
                 if (row_no == 1) {
-                    buyTicket_dataCheck(1, 12, row_1, 10, 1);
+                    buyTicket_dataCheck(1, 12, row_1);
                 } else if (row_no == 2) {
-                    buyTicket_dataCheck(1, 16, row_2, 20, 2);
+                    buyTicket_dataCheck(1, 16, row_2);
                 } else if (row_no == 3) {
-                    buyTicket_dataCheck(1, 20, row_3, 30, 3);
+                    buyTicket_dataCheck(1, 20, row_3);
                 }
                 break;
 
