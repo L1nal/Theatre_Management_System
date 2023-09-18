@@ -124,6 +124,21 @@ public class Theatre {
             System.out.println("Seat cancelled successfully.");
         }
     }
+
+    public static void available(String[] arr, int end){
+        for(int i = 0; i < end; i++){
+            if(arr[i] == "O"){
+                System.out.println(i+1);
+                if (i < end - 1){
+                    System.out.println(", ");
+                }
+            }else{
+                continue;
+            }
+        }System.out.println(",");
+    }
+
+
     public static void buy_ticket(){
 
         System.out.println("Enter the Row and Column Number of the seat you wish to reserve.");
@@ -229,13 +244,15 @@ public class Theatre {
 
     public static void show_available(){
         System.out.println("Seats available in row 1: ");
-        for(int i = 0; i < 12; i++){
-            if(row_1[i] == "O"){
-                System.out.println(i+1);
-            }else{
-                continue;
-            }
-        }System.out.print(".");
+        available(row_1, row_1.length);
+        System.out.println();
+
+        System.out.println("Seate available in row 2: ");
+        available(row_2, row_2.length);
+        System.out.println();
+
+        System.out.println("Seate available in row 3: ");
+        available(row_3, row_3.length);
         System.out.println();
     }
 }
