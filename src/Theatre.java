@@ -72,6 +72,9 @@ public class Theatre {
                 case 3:
                     cancel_ticket();
                     break;
+                case 4:
+                    show_available();
+                    break;
                 case 0:
                     System.out.println("Thank You, Enjoy the show.");
                     loop = true;
@@ -222,5 +225,17 @@ public class Theatre {
                 System.out.println("Invalid Input. Please try again.");
             }
         }
+    }
+
+    public static void show_available(){
+        System.out.println("Seats available in row 1: ");
+        for(int i = 0; i < 12; i++){
+            if(row_1[i] == "O"){
+                System.out.println(i+1);
+            }else{
+                continue;
+            }
+        }System.out.print(".");
+        System.out.println();
     }
 }
