@@ -1,0 +1,5 @@
+ ◆ O indicates a free seat. 
+ ◆ X indicates an occupied (sold) seat.
+Seats available in row 1:O O X O O O O O O O O O 
+Seats available in row 2:O O O O O O O O O O O O O O O O 
+Seats available in row 3:O O O O O O O O O O O O O O O O O O O O 

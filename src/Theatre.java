@@ -1,4 +1,8 @@
 import java.util.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
 
 public class Theatre {
     public static String [] row_1 = {"O","O","O","O","O","O","O","O","O","O","O","O"};
@@ -75,6 +79,9 @@ public class Theatre {
                 case 4:
                     show_available();
                     break;
+                case 5:
+                    save();
+                    break;
                 case 0:
                     System.out.println("Thank You, Enjoy the show.");
                     loop = true;
@@ -127,13 +134,11 @@ public class Theatre {
 
     public static void available(String[] arr, int end){
         for(int i = 0; i < end; i++){
-            if(arr[i] == "O"){
+            if(arr[i].equals("O")){
                 System.out.println(i+1);
                 if (i < end - 1){
                     System.out.println(", ");
                 }
-            }else{
-                continue;
             }
         }System.out.println(",");
     }
@@ -247,12 +252,48 @@ public class Theatre {
         available(row_1, row_1.length);
         System.out.println();
 
-        System.out.println("Seate available in row 2: ");
+        System.out.println("Seats available in row 2: ");
         available(row_2, row_2.length);
         System.out.println();
 
-        System.out.println("Seate available in row 3: ");
+        System.out.println("Seats available in row 3: ");
         available(row_3, row_3.length);
         System.out.println();
+    }
+
+    public static void save(){
+        try {
+            File file = new File("text.txt");
+            boolean file_created = file.createNewFile();
+            if (file_created) {
+                System.out.println("\nFile created: " + file.getName());
+            }
+            FileWriter writer = new FileWriter(file);
+            writer.write(" ◆ O indicates a free seat. \n ◆ X indicates an occupied (sold) seat.\n");
+            writer.write("Seats available in row 1:");
+
+            for (String s : row_1) {
+                writer.write(s + " ");
+            }
+            writer.write("\n");
+            writer.write("Seats available in row 2:");
+
+            for (String s : row_2) {
+                writer.write(s + " ");
+            }
+            writer.write("\n");
+            writer.write("Seats available in row 3:");
+
+            for (String s : row_3) {
+                writer.write(s + " ");
+            }
+            writer.write("\n");
+
+            writer.close();
+            System.out.println("Array written to file.");
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
     }
 }
