@@ -10,4 +10,13 @@ public class Ticket {
         this.price = price;
         this.person = person;
     }
+
+    public void print() {
+        System.out.println("Person name: " + person.getName());
+        System.out.println("Person surname: " + person.getSurname());
+        System.out.println("Person email: " + person.getEmail());
+        System.out.println("Row: " + row);
+        System.out.println("Seat: " + seat);
+        System.out.println("Price: " + price);
+    }
 }
