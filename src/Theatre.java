@@ -82,6 +82,9 @@ public class Theatre {
                 case 5:
                     save();
                     break;
+                case 6:
+                    load();
+                    break;
                 case 0:
                     System.out.println("Thank You, Enjoy the show.");
                     loop = true;
@@ -92,7 +95,7 @@ public class Theatre {
         }
     }
 
-    public static int inputData_checker(int min,int max) {
+    static int inputData_checker(int min,int max) {
         Scanner input = new Scanner(System.in);
         int data;
         while (true) {
@@ -112,7 +115,7 @@ public class Theatre {
         }
     }
 
-    public static void buyTicket_dataCheck(int min, int max, String arr[]){
+    static void buyTicket_dataCheck(int min, int max, String arr[]){
         int seat_no = inputData_checker(min, max);
         if (arr[seat_no - 1].equals("X")) {
             System.out.println("This Seat is already occupied.");
@@ -122,7 +125,7 @@ public class Theatre {
         }
     }
 
-    public static void cancelTicket_dataCheck(int min, int max){
+   static void cancelTicket_dataCheck(int min, int max){
         int seat_no = inputData_checker(min, max);
         if (row_1[seat_no-1].equals("O")) {
             System.out.println("Unoccupied seat");
@@ -132,7 +135,7 @@ public class Theatre {
         }
     }
 
-    public static void available(String[] arr, int end){
+   static void available(String[] arr, int end){
         for(int i = 0; i < end; i++){
             if(arr[i].equals("O")){
                 System.out.println(i+1);
@@ -144,7 +147,7 @@ public class Theatre {
     }
 
 
-    public static void buy_ticket(){
+    static void buy_ticket(){
 
         System.out.println("Enter the Row and Column Number of the seat you wish to reserve.");
 
@@ -169,7 +172,7 @@ public class Theatre {
         }
     }
 
-    public static void print_seating_area(){
+    static void print_seating_area(){
 
         System.out.print("\t");
         System.out.print("\t");
@@ -222,7 +225,7 @@ public class Theatre {
         System.out.println();
     }
 
-    public static void cancel_ticket(){
+    static void cancel_ticket(){
 
         System.out.println("Enter the Row and Column Number of the seat you wish to cancel.");
 
@@ -247,7 +250,7 @@ public class Theatre {
         }
     }
 
-    public static void show_available(){
+   static void show_available(){
         System.out.println("Seats available in row 1: ");
         available(row_1, row_1.length);
         System.out.println();
@@ -261,7 +264,7 @@ public class Theatre {
         System.out.println();
     }
 
-    public static void save(){
+    static void save(){
         try {
             File file = new File("text.txt");
             boolean file_created = file.createNewFile();
@@ -296,4 +299,24 @@ public class Theatre {
             e.printStackTrace();
         }
     }
+
+   static void load() {
+       try {
+           File file = new File("text.txt");
+           Scanner rf = new Scanner(file);
+
+           String fileLine;
+           int linecount = 0;
+           while (rf.hasNext()) {
+               fileLine = rf.nextLine();
+               System.out.println(fileLine);
+               linecount++;
+           }
+           rf.close();
+           System.out.print("\nSuccessfully restored the 3 arrays with the row's information.\n");
+       } catch (IOException e) {
+           System.out.println(e);
+       }
+   }
+
 }
