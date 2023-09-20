@@ -5,11 +5,13 @@ import java.io.IOException;
 
 
 public class Theatre {
-    public static String [] row_1 = {"O","O","O","O","O","O","O","O","O","O","O","O"};
-    public static String [] row_2 = {"O","O","O","O","O","O","O","O","O","O","O","O","O","O","O","O"};
-    public static String [] row_3 = {"O","O","O","O","O","O","O","O","O","O","O","O","O","O","O","O","O","O","O","O"};
-
-    public static void main(String[] args) {
+//    public static String [] row_1 = {"O","O","O","O","O","O","O","O","O","O","O","O"};
+//    public static String [] row_2 = {"O","O","O","O","O","O","O","O","O","O","O","O","O","O","O","O"};
+//    public static String [] row_3 = {"O","O","O","O","O","O","O","O","O","O","O","O","O","O","O","O","O","O","O","O"};
+    static int[] row_1 = new int[12];
+    static int[] row_2 = new int[16];
+    static int[] row_3 = new int[20];
+     static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
 
