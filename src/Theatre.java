@@ -117,24 +117,24 @@ public class Theatre {
         }
     }
 
-    static void buyTicket_dataCheck(int min, int max, String arr[]){
+    static void buyTicket_dataCheck(int min, int max, int[] arr){
         int seat_no = inputData_checker(min, max);
-        if (arr[seat_no - 1].equals("X")) {
+        if (arr[seat_no - 1] == 1) {
             System.out.println("This Seat is already occupied.");
-        }else if (arr[seat_no-1].equals("O")) {
-            arr[seat_no-1] = "X";
+        }else if (arr[seat_no-1] == 0) {
+            arr[seat_no-1] = 1;
             System.out.println("Seat reserved successfully.");
         }
     }
 
-   static void cancelTicket_dataCheck(int min, int max){
+   static void cancelTicket_dataCheck(int min, int max, int[] arr){
         int seat_no = inputData_checker(min, max);
-        if (row_1[seat_no-1].equals("O")) {
-            System.out.println("Unoccupied seat");
-        }else if (row_1[seat_no-1].equals("X")) {
-            row_1[seat_no-1] = "O";
-            System.out.println("Seat cancelled successfully.");
-        }
+       if (arr[seat_no-1] == 0) {
+           System.out.println("This Seat is already unoccupied.");
+       }else if (row_1[seat_no-1] == 1) {
+           arr[seat_no-1] = 0;
+           System.out.println("Seat cancelled successfully.");
+       }
     }
 
    static void available(String[] arr, int end){
