@@ -218,14 +218,14 @@ public class Theatre {
             try{
                 System.out.println( );
                 System.out.print("Enter the row number:");
-                int row_no = inputValidator(0, 3);
+                int row_no = inputData_checker(0, 3);
                 System.out.print("Enter the Seat number:");
                 if(row_no == 1){
-                    cancelTicket_validator(1, 12, row_1, 1);
+                    cancelTicket_dataCheck(1, 12, row_1);
                 }else if(row_no == 2){
-                    cancelTicket_validator(1, 16, row_2, 2);
+                    cancelTicket_dataCheck(1, 16, row_2);
                 }else if(row_no == 3){
-                    cancelTicket_validator(1, 20, row_3, 3);
+                    cancelTicket_dataCheck(1, 20, row_3);
                 }break;
             } catch (Exception e) {
                 System.out.println("\n");
@@ -234,18 +234,16 @@ public class Theatre {
         }
     }
 
-   static void show_available(){
-        System.out.println("Seats available in row 1: ");
-        available(row_1, row_1.length);
+    public static void show_available(){
+        System.out.print("Seats available in row 1:");
+        loadInfo(0,row_1.length,row_1);
         System.out.println();
-
-        System.out.println("Seats available in row 2: ");
-        available(row_2, row_2.length);
+        System.out.print("Seats available in row 2:");
+        loadInfo(0,row_2.length,row_2);
         System.out.println();
-
-        System.out.println("Seats available in row 3: ");
-        available(row_3, row_3.length);
-        System.out.println();
+        System.out.print("Seats available in row 3:");
+        loadInfo(0,row_3.length,row_3);
+        System.out.println( );
     }
 
     static void save(){
