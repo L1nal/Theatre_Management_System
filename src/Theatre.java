@@ -211,23 +211,21 @@ public class Theatre {
         }
     }
 
-    static void cancel_ticket(){
-
+    public static void cancel_ticket(){
+        Scanner input = new Scanner(System.in);
         System.out.println("Enter the Row and Column Number of the seat you wish to cancel.");
-
         while(true) {
-
             try{
                 System.out.println( );
                 System.out.print("Enter the row number:");
-                int row_no = inputData_checker(0, 3);
+                int row_no = inputValidator(0, 3);
                 System.out.print("Enter the Seat number:");
                 if(row_no == 1){
-                    cancelTicket_dataCheck(1, 12);
+                    cancelTicket_validator(1, 12, row_1, 1);
                 }else if(row_no == 2){
-                    cancelTicket_dataCheck(1, 16);
+                    cancelTicket_validator(1, 16, row_2, 2);
                 }else if(row_no == 3){
-                    cancelTicket_dataCheck(1, 20);
+                    cancelTicket_validator(1, 20, row_3, 3);
                 }break;
             } catch (Exception e) {
                 System.out.println("\n");
