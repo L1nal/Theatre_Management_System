@@ -11,6 +11,7 @@ public class Theatre {
     static int[] row_1 = new int[12];
     static int[] row_2 = new int[16];
     static int[] row_3 = new int[20];
+    public static int[] SeatArray;
      static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
@@ -175,56 +176,39 @@ public class Theatre {
     }
 
     static void print_seating_area(){
-
         System.out.print("\t");
+        System.out.println("***********");
         System.out.print("\t");
-        System.out.println("*************");
+        System.out.println("* " + " STAGE " + " *");
         System.out.print("\t");
-        System.out.print("\t");
-        System.out.println("*" + "   STAGE   " + "*");
-        System.out.print("\t");
-        System.out.print("\t");
-        System.out.println("*************");
-
-        System.out.print("\t");
-        System.out.print("\t");
-        for(int i = 0; i < row_1.length; i++){
-            if(i == 6){
-                System.out.print(" ");
-                System.out.print(row_1[6]);
-            }else{
-                System.out.print(row_1[i]);
+        System.out.println("***********");
+        for (int row = 1 ; row < 4 ; row++ ) {
+            if (row == 1) {
+                SeatArray = row_1;
+            } else if (row == 2) {
+                SeatArray = row_2;
+            } else {
+                SeatArray = row_3;
             }
-        }
-
-        System.out.println();
-
-        for(int j = 0; j < row_2.length; j++){
-            if(j == 0){
-                System.out.print("      ");
-                System.out.print(row_2[0]);
-            }else if(j == 8){
+            // Print spaces between rows and the middle
+            for (int space = 1 ; space <= (3 - row) * 2 ; space++) {
                 System.out.print(" ");
-                System.out.print(row_2[8]);
-            }else{
-                System.out.print(row_2[j]);
             }
-        }
-
-        System.out.println();
-
-        for(int k = 0; k < row_3.length; k++){
-            if(k == 0){
-                System.out.print("    ");
-                System.out.print(row_3[0]);
-            }else if(k == 10){
-                System.out.print(" ");
-                System.out.print(row_3[10]);
-            }else {
-                System.out.print(row_3[k]);
+            int count = 1;
+            int middle = (SeatArray.length) / 2;
+            for (int seat : SeatArray) {
+                if (seat == 0) {
+                    System.out.print("O");
+                } else {
+                    System.out.print("X");
+                }
+                if (count == middle) {
+                    System.out.print(" ");
+                }
+                count++;
             }
+            System.out.println();
         }
-        System.out.println();
     }
 
     static void cancel_ticket(){
