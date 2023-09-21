@@ -19,4 +19,24 @@ public class Ticket {
         System.out.println("Seat: " + seat);
         System.out.println("Price: " + price);
     }
+
+    public int getRow() {
+        return row;
+    }
+    public void setRow(int row) {
+        this.row = row;
+    }
+    public int getSeat() {
+        return seat;
+    }
+    public void setSeat(int seat) {
+        this.seat = seat;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+    public void setPrice(double price) {
+        this.price = price;
+    }
 }

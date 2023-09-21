@@ -179,13 +179,23 @@ public class Theatre {
         }
     }
 
-   static void cancelTicket_dataCheck(int min, int max, int[] arr){
+    public static void removeInfo(int seat_no, int row_no){
+        for (Ticket obj : customers) {
+            if (obj.getRow() == row_no && obj.getSeat() == seat_no) {
+                customers.remove(obj);
+                break; // exit the loop after removing the object
+            }
+        }
+    }
+
+   static void cancelTicket_dataCheck(int min, int max, int arr[], int row){
         int seat_no = inputData_checker(min, max);
        if (arr[seat_no-1] == 0) {
            System.out.println("This Seat is already unoccupied.");
        }else if (row_1[seat_no-1] == 1) {
            arr[seat_no-1] = 0;
            System.out.println("Seat cancelled successfully.");
+           removeInfo(seat_no,row);
        }
     }
 
@@ -199,7 +209,6 @@ public class Theatre {
             }
         }System.out.println(",");
     }
-
 
     static void buy_ticket(){
 
@@ -241,7 +250,7 @@ public class Theatre {
             } else {
                 SeatArray = row_3;
             }
-            // Print spaces between rows and the middle
+            // Prints spaces between rows and the middle
             for (int space = 1 ; space <= (3 - row) * 2 ; space++) {
                 System.out.print(" ");
             }
@@ -272,11 +281,11 @@ public class Theatre {
                 int row_no = inputData_checker(0, 3);
                 System.out.print("Enter the Seat number:");
                 if(row_no == 1){
-                    cancelTicket_dataCheck(1, 12, row_1);
+                    cancelTicket_dataCheck(1, 12, row_1, 1);
                 }else if(row_no == 2){
-                    cancelTicket_dataCheck(1, 16, row_2);
+                    cancelTicket_dataCheck(1, 16, row_2,2);
                 }else if(row_no == 3){
-                    cancelTicket_dataCheck(1, 20, row_3);
+                    cancelTicket_dataCheck(1, 20, row_3,3);
                 }break;
             } catch (Exception e) {
                 System.out.println("\n");
