@@ -118,6 +118,18 @@ public class Theatre {
         }
     }
 
+    public static void loadInfo(int start, int end, int[] arr){
+        for(int i = start; i < end; i++){
+            if(arr[i] == 0){
+                System.out.print(i+1);
+                if (i < end - 1) {
+                    System.out.print(", ");
+                }
+            }else{
+                continue;
+            }
+        }System.out.print(".");
+    }
     static void buyTicket_dataCheck(int min, int max, int[] arr){
         int seat_no = inputData_checker(min, max);
         if (arr[seat_no - 1] == 1) {
@@ -248,32 +260,30 @@ public class Theatre {
 
     static void save(){
         try {
-            File file = new File("text.txt");
+            File file = new File("seatingInfo.txt");
             boolean file_created = file.createNewFile();
             if (file_created) {
                 System.out.println("\nFile created: " + file.getName());
             }
             FileWriter writer = new FileWriter(file);
             writer.write(" ◆ O indicates a free seat. \n ◆ X indicates an occupied (sold) seat.\n");
-            writer.write("Seats available in row 1:");
 
-            for (String s : row_1) {
-                writer.write(s + " ");
+            writer.write("Seats available in row 1:");
+            for (int i = 0; i < row_1.length; i++) {
+                writer.write(row_1[i] + " ");
             }
             writer.write("\n");
-            writer.write("Seats available in row 2:");
 
-            for (String s : row_2) {
-                writer.write(s + " ");
+            writer.write("Seats available in row 2:");
+            for (int i = 0; i < row_2.length; i++) {
+                writer.write(row_2[i] + " ");
             }
             writer.write("\n");
             writer.write("Seats available in row 3:");
-
-            for (String s : row_3) {
-                writer.write(s + " ");
+            for (int i = 0; i < row_3.length; i++) {
+                writer.write(row_3[i] + " ");
             }
             writer.write("\n");
-
             writer.close();
             System.out.println("Array written to file.");
         } catch (IOException e) {
