@@ -5,13 +5,13 @@ import java.io.IOException;
 
 
 public class Theatre {
-//    public static String [] row_1 = {"O","O","O","O","O","O","O","O","O","O","O","O"};
-//    public static String [] row_2 = {"O","O","O","O","O","O","O","O","O","O","O","O","O","O","O","O"};
-//    public static String [] row_3 = {"O","O","O","O","O","O","O","O","O","O","O","O","O","O","O","O","O","O","O","O"};
     static int[] row_1 = new int[12];
     static int[] row_2 = new int[16];
     static int[] row_3 = new int[20];
     public static int[] SeatArray;
+
+    static ArrayList<Ticket> customers = new ArrayList<>();
+
      static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
@@ -130,13 +130,52 @@ public class Theatre {
             }
         }System.out.print(".");
     }
-    static void buyTicket_dataCheck(int min, int max, int[] arr){
-        int seat_no = inputData_checker(min, max);
+
+    public static void getInfo(int row_no, int seat_no,float price) {
+        Scanner input = new Scanner(System.in);
+        while (true) {
+            try {
+                String name = "";
+                while (!name.matches("[a-zA-Z]+")) {
+                    if (!name.equals("")) {
+                        System.out.println("Invalid name.");
+                    }
+                    System.out.print("\nEnter your name: ");
+                    name = input.next();
+                }
+                String surname = "";
+                while (!surname.matches("[a-zA-Z]+")) {
+                    if (!surname.equals("")) {
+                        System.out.println("Invalid surname.");
+                    }
+                    System.out.print("\nEnter your surname: ");
+                    surname = input.next();
+                }
+                String email = "";
+                while (!email.matches("\\b[\\w.%-]+@[-.\\w]+\\.[A-Za-z]{2,4}\\b")) {
+                    if (!email.equals("")) {
+                        System.out.println("Invalid email.");
+                    }
+                    System.out.print("\nEnter your email: ");
+                    email = input.next();
+                }
+                Person person = new Person(name, surname, email);
+                Ticket ticket = new Ticket(row_no, seat_no, price, person);
+                customers.add(ticket);
+                break;
+            } catch (Exception e) {
+                System.out.println("Enter valid data.");
+            }
+        }
+    }
+    static void buyTicket_dataCheck(int min, int max, int arr[], float price, int row){
+         int seat_no = inputData_checker(min, max);
         if (arr[seat_no - 1] == 1) {
             System.out.println("This Seat is already occupied.");
         }else if (arr[seat_no-1] == 0) {
             arr[seat_no-1] = 1;
             System.out.println("Seat reserved successfully.");
+            getInfo(row,seat_no,price);
         }
     }
 
@@ -172,11 +211,11 @@ public class Theatre {
                 int row_no = inputData_checker(1,3);
                 System.out.print("Enter the Seat number:");
                 if (row_no == 1) {
-                    buyTicket_dataCheck(1, 12, row_1);
+                    buyTicket_dataCheck(1, 12, row_1, 10, 1);
                 } else if (row_no == 2) {
-                    buyTicket_dataCheck(1, 16, row_2);
+                    buyTicket_dataCheck(1, 16, row_2, 20, 2);
                 } else if (row_no == 3) {
-                    buyTicket_dataCheck(1, 20, row_3);
+                    buyTicket_dataCheck(1, 20, row_3, 30, 3);
                 }
                 break;
 
