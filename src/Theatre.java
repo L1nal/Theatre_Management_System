@@ -88,6 +88,9 @@ public class Theatre {
                 case 6:
                     load();
                     break;
+                case 8:
+                    sort_tickets();
+                    break;
                 case 7:
                     show_ticket_info();
                     break;
@@ -371,5 +374,21 @@ public class Theatre {
             System.out.println();
         }
         System.out.println("Total Price is: €" + total);
+    }
+
+    public static void sort_tickets(){
+        int n = customers.size();
+        Ticket temp;
+        for(int i = 0; i < n; i++){
+            for(int j = 1; j < (n-i); j++){
+                if(customers.get(j-1).getPrice() > customers.get(j).getPrice()){
+                    temp = customers.get(j-1);
+                    customers.set(j-1, customers.get(j));
+                    customers.set(j, temp);
+                }
+            }
+        }
+        System.out.println("Tickets sorted on basis of their prices.");
+        show_ticket_info();
     }
 }
