@@ -88,6 +88,9 @@ public class Theatre {
                 case 6:
                     load();
                     break;
+                case 7:
+                    show_ticket_info();
+                    break;
                 case 0:
                     System.out.println("Thank You, Enjoy the show.");
                     loop = true;
@@ -340,23 +343,33 @@ public class Theatre {
         }
     }
 
-   static void load() {
-       try {
-           File file = new File("text.txt");
-           Scanner rf = new Scanner(file);
+    public static void load(){
+        try{
+            File file = new File("text.txt");
+            Scanner readFile = new Scanner(file);
+            String fileLine;
+            int linecount = 0;
+            while (readFile.hasNext()){
+                fileLine = readFile.nextLine();
+                System.out.println(fileLine);
+                linecount++;
+            }
+            readFile.close();
+            System.out.print("\nSuccessfully restored the 3 arrays with the row's information.\n");
+        }
+        catch (IOException e) {
+            System.out.println(e);
+        }
+    }
 
-           String fileLine;
-           int linecount = 0;
-           while (rf.hasNext()) {
-               fileLine = rf.nextLine();
-               System.out.println(fileLine);
-               linecount++;
-           }
-           rf.close();
-           System.out.print("\nSuccessfully restored the 3 arrays with the row's information.\n");
-       } catch (IOException e) {
-           System.out.println(e);
-       }
-   }
-
+    static void show_ticket_info(){
+        System.out.println();
+        double total = 0;
+        for( Ticket ticket:customers){
+            total += ticket.getPrice();
+            ticket.print();
+            System.out.println();
+        }
+        System.out.println("Total Price is: €" + total);
+    }
 }
