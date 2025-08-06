@@ -1,5 +1,5 @@
 # Theatre_Management_System
-A Java program for managing and controlling seat reservations and ticket pricing for the "New Theatre" company's theatre sessions.
+A Java console program for managing and controlling seat reservations and ticket pricing for the "New Theatre" company's theatre sessions.
 
 # New Theatre Seat Management and Ticket Pricing System
 
