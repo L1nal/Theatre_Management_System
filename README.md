@@ -5,12 +5,6 @@ A Java program for managing and controlling seat reservations and ticket pricing
 
 A Java program for managing and controlling seat reservations and ticket pricing for the "New Theatre" company's theatre sessions.
 
-## Table of Contents
-
-- [Introduction](#introduction)
-- [Features](#features)
-- [Technologies](#technologies)
-
 ## Introduction
 
 The "New Theatre Seat Management and Ticket Pricing System" is a Java program designed to help the "New Theatre" company efficiently manage and control seat reservations for their theatre sessions while also calculating ticket prices. The theatre is composed of 3 rows, each with a different number of seats: 12, 16, and 20, respectively. This program provides a user-friendly interface for booking, tracking seat availability, and calculating ticket prices.
